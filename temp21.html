@@ -1,62 +1,327 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Facebook</title>
     <style>
-          body{
-            background-color:rgb(242, 244, 245)
-        } 
-        .box{
-          width:400px;
-          border:1px solid gray;
-          border-radius:20px;
-          padding:20px;
-          margin:20px;
-          background-color: white;
-        }
-        input,select{
-            width:150px;
-            padding:10px;
-            border-radius:5px;
-            border:2px solid #ddd;
-            font-size:16px;
-        } 
-        button{
-            background-color: rgb(19, 171, 19);
-        } 
-        .row{
-            display:flex;
-            justify-content:center
-         } 
-         
+      body {
+        background-color: #eeeeee;
+      }
+      .container {
+        background-color: white;
+        border-radius: 10px;
+        padding: 10px;
+        width: 400px;
+        margin: auto;
+        box-shadow:5px 5px 9px 9px rgb(0,0,0,0.2);
+      }
+      .row {
+        display: flex;
+        justify-content: center;
+      }
+      .title {
+        font-family:'Times New Roman';
+        font-size: 30px;
+        margin-top: 10px;
+      }
+      .header {
+        font-size: 50px;
+        color: rgb(14, 99, 226);
+        font-weight: bold;
+        font-family: klakia;
+        padding:5px;
+      }
+      .caption {
+        font-size: 15px;
+        color: gray;
+        text-align: center;
+        margin-bottom: 5px;
+      }
+      input,
+      select {
+        width: 100%;
+        margin: 5px;
+        border-radius: 5px;
+        padding: 13px;
+        border: 0.5px solid rgb(198, 189, 189);
+      }
+      button {
+        color: white;
+        background-color: rgb(45, 166, 45);
+        font-size: 18px;
+        padding: 10px;
+        border-radius: 5px;
+        width: 180px;
+        border: none;
+        margin: 5px;
+      }
+      button:hover{
+        background-color: rgb(33, 150, 33);
+      }
+      .leftCaption {
+        color: gray;
+        margin-left: 5px;
+        font-size: 10px;
+      }
+      .qMark {
+        background-color: green;
+        border-radius: 5px;
+        color: white;
+        padding-left: 5px;
+        padding-right: 5px;
+        margin: 2px;
+      }
+      .radioClass {
+        border: 1px solid rgb(223, 220, 220);
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin: 5px;
+        border-radius: 5px;
+        padding: 5px;
+      }
+      .chkClass {
+        border: 1px solid rgb(223, 220, 220);
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin: 5px;
+        border-radius: 5px;
+        padding: 5px;
+      }
     </style>
-</head>
-<body>
-      <center>
-       <p><img src="/assets/images/facebook.png" width="250px"></p>
-       <div class="box">
-        <h2>Create a new account</h2>
-        <h3 style="font-size:10px">It's quick and easy</h3>
-        <hr>
-        <input type="text" placeholder="First name">
-        <input type="text" placeholder="Surname">
-        <p style="margin-left:5px">Date of birth:</p>
-        <div class="row">
-            <select id="day"></select>
-            <select id="month"></select>
-            <select id="year"></select>
-        </div>
-        <p>Gender:</p>
-        <div>
-        <input type="radio" name="gender" value="Female">Female</br>
-        <input type="radio" name="gender" value="Male">Male</br>
-        <input type="radio" name="gender" value="Other">Other</br>
-        </div>
-        <input type="text" placeholder="Email address" width="150px">
-        <p><input type="number" placeholder="New password"></p>
-        <button>Sign in</button>
-       </div> 
-    </center>  
-     
+    
+  </head>
+  <body>
+    </script>
+    <center>
+    <div class="header">facebook</div>
+    </center>
+    <br>
+   
+<div class="container">
+  <div class="row">
+  </div>
+  <div class="row">
+    <div>
+      <div class="title">Create a new account</div>
+      <div class="caption">It's quick and easy.</div>
+    </div>
+  </div>
+  <hr />
+  <div id="root"></div>
+</div>
+<script>
+  const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+  let firstname = "";
+  let surname = "";
+  let email = "";
+  let password = "";
+  let gender = 0;
+  let movies;
+  let dd = null;
+  let mm;
+  let yy;
+  let pronoun;
+  let music;
+  let sports;
+  let g = "";
+  const showData = () => {
+    firstname = document.getElementById("firstname").value;
+    surname = document.getElementById("surname").value;
+    email = document.getElementById("email").value;
+    password = document.getElementById("password").value;
+    gender = document.getElementsByName("gender");
+    pronoun = document.getElementById("prSelect").value;
+    dd = Number(document.getElementById("day").value);
+    mm = Number(document.getElementById("month").value);
+    yy = Number(document.getElementById("year").value);
+    sports = document.getElementById("sports").checked;
+        music = document.getElementById("music").checked;
+        movies = document.getElementById("movies").checked;
+    console.log(dd, mm, yy);
+    let dob = `${dd}-${months[mm]}-${yy}`;
+    g = "";
+    if (gender[0].checked) g = "Female";
+    if (gender[1].checked) g = "Male";
+    if (gender[2].checked) g = pronoun;
+     let c="";
+    if (sports) c += "Sports ";
+    if (movies) c += "Movies ";
+    if (music) c += "Music ";
+    let str = `
+      <h3>Verify your information</h3>
+      <p>Name:${firstname} ${surname}</p>
+      <p>Email:${email}</p>
+      <p>Password:${password}</p>
+      <p>Gender:${g}</p>
+      <p>Interests:${c}</p>
+      <p>Date of Birth:${dob}</p>
+      <button>Confirm</button>
+      <button onclick="showForm()">Edit</button>
+    </div>
+    `;
+    root.innerHTML = str;
+  };
+
+  const f1 = () => {
+    let str = "";
+    let dt = new Date();
+    let d = dd ?? dt.getDate();
+    let m = mm ?? dt.getMonth();
+    let y = yy ?? dt.getFullYear();
+    if (pronoun != "NA") prSelect.style.display = "block";
+    for (let i = 1; i <= 31; i++) {
+      str += `<option ${i === d && "selected"}>${i}</option>`;
+    }
+    day.innerHTML = str;
+    str = "";
+    for (let i = 0; i <= 11; i++) {
+      str += `<option value=${i} ${i === m && "selected"}>${
+        months[i]
+      }</option>`;
+    }
+    month.innerHTML = str;
+    str = "";
+    for (let i = 1905; i <= 2025; i++) {
+      str += `<option ${i === y && "selected"}>${i}</option>`;
+    }
+    year.innerHTML = str;
+  };
+
+  const showForm = () => {
+    let str = `
+  
+  <div class="row">
+    <input type="text" id="firstname" value='${firstname}' placeholder="First Name" autofocus required/>
+    <input type="text" id="surname" value='${surname}' placeholder="Surname" required/>
+  </div>
+  <div class="row" style="justify-content: start">
+    <div class="leftCaption">
+      Date of Birth<span class="qMark"
+        ><abbr title="Click for more information">?</abbr></span
+      >
+    </div>
+  </div>
+  <div class="row">
+    <select id="day"></select>
+    <select id="month"></select>
+    <select id="year"></select>
+  </div>
+  <div class="row" style="justify-content: start">
+    <div class="leftCaption">
+      Gender<span class="qMark"
+        ><abbr title="Click for more information">?</abbr></span
+      >
+    </div>
+  </div>
+  <div class="row">
+    <div class="radioClass">
+      <div><label> Female</label></div>
+      <div><input type="radio" ${
+        g === "Female" && "checked"
+      } name="gender" onclick="togglePronoun()" /></div>
+    </div>
+    <div class="radioClass">
+      <div><label> Male</label></div>
+      <div><input type="radio" ${
+        g === "Male" && "checked"
+      } name="gender" onclick="togglePronoun()" /></div>
+    </div>
+    <div class="radioClass">
+      <div><label> Custom</label></div>
+      <div><input type="radio" ${
+        pronoun != "NA" && "checked"
+      } name="gender" onclick="togglePronoun()" /></div>
+    </div>
+  </div>
+
+ <div class="row">
+  <select id="prSelect" style="display:none">
+    <option value="NA" >Select your pronoun</option>
+    <option value="She" >She:"Wish her a happy birthday"</option>
+    <option value="He">He:"Wish him a happy birthday"</option>
+    <option value="They" >They:"Wish them a happy birthday"</option>
+  </select>
+ </div>
+
+ <div class="row" style="justify-content: start">
+    <div class="leftCaption">
+      Interests<span class="qMark"
+        ><abbr title="Click for more information">?</abbr></span
+      >
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="chkClass">
+      <div></label>Sports</label></div>
+      <div><input type="checkbox" ${sports && "checked"} id="sports" /></div>
+    </div>
+    <div class="chkClass">
+      <div></label>Movies<label></div>
+      <div><input type="checkbox"  ${movies && "checked"} id="movies" /></div>
+    </div>
+    <div class="chkClass">    
+      <div><label>Music</label></div>
+      <div><input type="checkbox" ${music && "checked"} id="music" /></div>
+    </div>
+      </div>
+    </div>
+   </div> 
+
+
+  <div class="row">
+    <input type="text" value='${email}' id="email" placeholder="Mobile number or email address" />
+  </div>
+  <div class="row">
+    <input type="password" value='${password}' id="password" placeholder="New password" />
+    <img src="assets/images/hide.jpg" id='toggleEye' onclick='togglePwd()' width="40px">
+  </div>
+  <div class="row">
+    <button onclick='showData()'>Sign Up</button>
+  </div>
+  `;
+    root.innerHTML = str;
+    f1();
+  };
+
+  showForm();
+
+  const togglePwd = () => {
+    let pwd = document.getElementById("password");
+    if (pwd.type === "password") {
+      document.getElementById("toggleEye").src =
+        "assets/images/show.jpg";
+      pwd.type = "text";
+    } else {
+      document.getElementById("toggleEye").src =
+        "assets/images/hide.jpg";
+      pwd.type = "password";
+    }
+  };
+  const togglePronoun = () => {
+    let p = document.getElementsByName("gender");
+    if (p[2].checked) {
+      prSelect.style.display = "block";
+    } else {
+      prSelect.style.display = "none";
+    }
+  };
+</script>
+</body>
+</html>

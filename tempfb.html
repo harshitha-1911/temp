@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          body{
+            background-color:rgb(242, 244, 245)
+        } 
+        .box{
+          width:400px;
+          border:1px solid gray;
+          border-radius:20px;
+          padding:20px;
+          margin:20px;
+          background-color: white;
+        }
+        input,select{
+            width:150px;
+            padding:10px;
+            border-radius:5px;
+            border:2px solid #ddd;
+            font-size:16px;
+        } 
+        button{
+            background-color: rgb(19, 171, 19);
+        } 
+        .row{
+            display:flex;
+            justify-content:center
+         } 
+         
+    </style>
+</head>
+<body>
+      <center>
+       <p><img src="/assets/images/facebook.png" width="250px"></p>
+       <div class="box">
+        <h2>Create a new account</h2>
+        <h3 style="font-size:10px">It's quick and easy</h3>
+        <hr>
+        <input type="text" placeholder="First name">
+        <input type="text" placeholder="Surname">
+        <p style="margin-left:5px">Date of birth:</p>
+        <div class="row">
+            <select id="day"></select>
+            <select id="month"></select>
+            <select id="year"></select>
+        </div>
+        <p>Gender:</p>
+        <div>
+        <input type="radio" name="gender" value="Female">Female</br>
+        <input type="radio" name="gender" value="Male">Male</br>
+        <input type="radio" name="gender" value="Other">Other</br>
+        </div>
+        <input type="text" placeholder="Email address" width="150px">
+        <p><input type="number" placeholder="New password"></p>
+        <button>Sign in</button>
+       </div> 
+    </center>  
+     
