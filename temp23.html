@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game</title>
+</head>
+<body>
+    <img src="/assets/images/drop.jpg" width="100px" id="drop" />
+    <img src="/assets/images/hand.jpg" width="100px" id="hand" />
+    <script>
+        drop.style.position="absolute";
+        hand.style.position="absolute";
+        let b=document.body;
+        let left=0;
+        let down=400;
+        hand.style.left = left + "px";
+        hand.style.top = down + "px";
+        b.onkeydown = (e) => {
+        if (e.key == "ArrowRight") left += 5;
+        if (e.key == "ArrowDown") down += 5;
+        if (e.key == "ArrowLeft") left -= 5;
+        if (e.key == "ArrowUp") down -= 5;
+        hand.style.left = left + "px";
+        hand.style.top = down + "px";
+      };
+        let t=0;
+        let l=0;
+        function  dropFall() {
+            t++;
+            if(t>400) {t=1
+                l=Math.random()*500;
+            }
+            drop.style.top=t + "px";
+            drop.style.left=l + "px";
+            setTimeout(dropFall,5);
+        }
+        dropFall();
+    </script>
+</body>
+</html>
