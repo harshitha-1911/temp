@@ -26,11 +26,17 @@
       };
         let t=0;
         let l=0;
+        let gamept=0;
         function  dropFall() {
             t++;
-            if(t>400) {t=1
-                l=Math.random()*500;
-            }
+            if(t>400) {
+          if (Math.abs(l - left) < 25 && Math.abs(t - down) < 25) {
+            gamept++;
+            document.getElementById("score").innerText = gamept; 
+          }
+          t = 1;
+          l = Math.random() * 500;
+        }
             drop.style.top=t + "px";
             drop.style.left=l + "px";
             setTimeout(dropFall,5);
